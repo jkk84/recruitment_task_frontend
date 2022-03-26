@@ -1,4 +1,4 @@
-import { Button, Select, Space, Table, ConfigProvider } from 'antd';
+import { Button, Select, Space, Table, ConfigProvider, Row, Col } from 'antd';
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css'
@@ -99,23 +99,28 @@ function App() {
                         Wykonaj
                     </Button>
                 </Space>
-                <Space direction={"horizontal"} style={{ width: "90vw", marginTop: "2vw" }}>
-                    <Table size={"small"}
-                        style={{ width: "45vw" }}
-                        title={() => `Duplikaty`}
-                        bordered
-                        dataSource={duplicates}
-                        columns={columns}
-                    />
-
-                    <Table size={"small"}
-                        style={{ width: "45vw" }}
-                        title={() => `Unikalne`}
-                        bordered
-                        dataSource={uniques}
-                        columns={columns}
-                    />
-                </Space>
+                <Row>
+                    <Col style={{ margin: "2vw" }}>
+                        <Table size={"small"}
+                            style={{ width: "45vw" }}
+                            title={() => `Duplikaty`}
+                            bordered
+                            dataSource={duplicates}
+                            columns={columns}
+                            pagination={false}
+                        />
+                     </Col>
+                    <Col style={{ margin: "2vw" }}>
+                        <Table size={"small"}
+                            style={{ width: "45vw" }}
+                            title={() => `Unikalne`}
+                            bordered
+                            dataSource={uniques}
+                            columns={columns}
+                            pagination={false}
+                        />
+                     </Col>
+                </Row>
             </div>
         </ConfigProvider>
   );
